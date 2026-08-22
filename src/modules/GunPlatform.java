@@ -1,8 +1,9 @@
-package modules;
+package src.modules;
 
 import java.util.ArrayList;
+import src.Utils;
 
-public class GunPlatform implements ModuleInterface {
+public class GunPlatform extends BaseModule {
     private final ArrayList<String> COMMANDS = new ArrayList<>();
 
     public GunPlatform(){
@@ -31,5 +32,10 @@ public class GunPlatform implements ModuleInterface {
 
     public void inspect(){
         //give info about the platform and the gun object it has
+    }
+
+    public void snippet(){
+        //TODO temporary
+        Utils.type("A class-A gun platform with a railgun");
     }
 }

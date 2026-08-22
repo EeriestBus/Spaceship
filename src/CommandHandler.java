@@ -1,5 +1,8 @@
+package src;
 import java.util.ArrayList;
 import java.util.List;
+
+import src.modules.BaseModule;
 
 public class CommandHandler {
     private Game game;
@@ -18,8 +21,18 @@ public class CommandHandler {
     }
 
     public ArrayList<String> getAllCommands(){
-        //TODO
-        return this.COMMANDS;
+        ArrayList<String> allCommands = new ArrayList<>();
+        allCommands.addAll(COMMANDS);
+        allCommands.addAll(game.spaceship.getCommands());
+        for(ArrayList<BaseModule> row : game.spaceship.modules){
+            for(BaseModule module : row){
+                if(module != null){
+                    allCommands.addAll(module.getCommands());
+                }
+            }
+        }
+
+        return allCommands;
     }
 
     public void handle(String command){

@@ -1,7 +1,6 @@
-import java.util.Scanner;
+package src;
 
 public class Game {
-    public static Scanner scanner = new Scanner(System.in);
     public CommandHandler commandHandler = new CommandHandler(this);
     public Spaceship spaceship = new Spaceship();
     public final String intro = "\nWelcome to the game.";
@@ -20,7 +19,7 @@ public class Game {
 
     public void loop() {
         Utils.type("\nWhat would you like to do? ");
-        String input = scanner.nextLine();
+        String input = Utils.readNext();
 
         if (commandHandler.getAllCommands().contains(input)) {
             commandHandler.handle(input);

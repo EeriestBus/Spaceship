@@ -1,4 +1,11 @@
+package src;
+
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Utils {
+    public static Scanner scanner = new Scanner(System.in);
+
     public static void type(String string){
         for(char c : string.toCharArray()){
             System.out.print(c);
@@ -15,5 +22,15 @@ public class Utils {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+    }
+
+    public static String readNext(){
+        try{
+            while (System.in.available() > 0) {
+                scanner.nextLine();
+            }
+        } catch (IOException e) {}
+
+        return scanner.nextLine();
     }
 }
