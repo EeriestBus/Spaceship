@@ -1,10 +1,14 @@
 package src.modules;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import src.Utils;
 
 public class GunPlatform extends BaseModule {
-    private final ArrayList<String> COMMANDS = new ArrayList<>();
+    private final ArrayList<String> COMMANDS = new ArrayList<>(
+        List.of("inspect", "add gun", "remove gun")
+    );
 
     public GunPlatform(){
 
@@ -34,8 +38,12 @@ public class GunPlatform extends BaseModule {
         //give info about the platform and the gun object it has
     }
 
-    public void snippet(){
+    public String snippet(String coord){
         //TODO temporary
-        Utils.type("A class-A gun platform with a railgun");
+        return '\"' + coord + "\": A class-A gun platform with a railgun, located at " + coord;
+    }
+
+    public boolean contains(String command){
+        return getCommands().contains(command);
     }
 }
