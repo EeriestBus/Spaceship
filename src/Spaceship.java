@@ -48,6 +48,6 @@ public class Spaceship implements Commandable {
     }
 
     public void inspect(){
-
+        Utils.typeln("It is your spaceship.");
     }
 }

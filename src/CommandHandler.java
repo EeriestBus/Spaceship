@@ -2,6 +2,7 @@ package src;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.LinkedHashSet;
 
 import src.Utils.Pair;
 import src.modules.BaseModule;
@@ -21,7 +22,7 @@ public class CommandHandler implements Commandable {
     }
 
     public ArrayList<String> getAllCommands() {
-        ArrayList<String> allCommands = new ArrayList<>();
+        LinkedHashSet<String> allCommands = new LinkedHashSet<>();
         allCommands.addAll(COMMANDS);
         allCommands.addAll(game.spaceship.getCommands());
         for (ArrayList<BaseModule> column : game.spaceship.modules) {
@@ -32,7 +33,7 @@ public class CommandHandler implements Commandable {
             }
         }
 
-        return allCommands;
+        return new ArrayList<>(allCommands);
     }
 
     public void handle(String command) {
@@ -63,8 +64,17 @@ public class CommandHandler implements Commandable {
             for (Pair<Commandable, String> pair : containers) {
                 Utils.typeln(pair.one.snippet(pair.two));
             }
-            Utils.typeln("\nWhat do you want to \"" + command + "\"? ");
+            Utils.type("\nWhat do you want to run the command \"" + command + "\" on? ");
             String answer = Utils.readNext();
+
+            for(Pair<Commandable, String> pair : containers){
+                if(pair.two.equals(answer)){
+                    pair.one.runCommand(command);
+                    break;
+                }
+
+                //TODO tell user nothing was chosen
+            }
 
         } else {
             System.out.println("error: no legal object for command to run on");

@@ -24,8 +24,7 @@ public class Game {
         if (commandHandler.getAllCommands().contains(input)) {
             commandHandler.handle(input);
         } else {
-            Utils.typeln("Unfortunately, \"" + input
-                    + "\" is not a valid command. Type \"help\" for the list of valid commands.");
+            Utils.typeln("\"" + input + "\" is not a valid command. Type \"help\" for the list of valid commands.");
         }
 
         i++;
