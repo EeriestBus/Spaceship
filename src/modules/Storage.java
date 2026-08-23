@@ -3,28 +3,32 @@ package src.modules;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GunPlatform extends BaseModule {
+import src.ResourceHandler;
+
+public class Storage extends BaseModule {
     private final ArrayList<String> COMMANDS = new ArrayList<>(
-        List.of("inspect", "add gun", "remove gun")
+        List.of("inspect", "deposit materials", "move materials")
     );
 
-    public GunPlatform(){
+    ResourceHandler resourceHandler;
+
+    public Storage(){
 
     }
 
-    public void addGun(){
-        //ask the user then add that gun. prompt a confirm if they already have a gun there
+    public void depositMaterials(){
+
     }
 
-    public void removeGun(){
-        //remove the gun
+    public void moveMaterials(){
+        //move to storage or airlock
     }
 
     public void runCommand(String command){
         switch (command) {
             case "inspect" -> inspect();
-            case "add gun" -> addGun();
-            case "remove gun" -> removeGun();
+            case "deposit materials" -> depositMaterials();
+            case "move materials" -> moveMaterials();
         }
     }
 
