@@ -29,7 +29,13 @@ public class GunPlatform extends BaseModule {
     }
 
     public ArrayList<String> getCommands(){
-        return COMMANDS;
+        ArrayList<String> array = new ArrayList<>();
+
+        for(String s : COMMANDS){
+            array.add(s);
+        }
+        
+        return array;
     }
 
     public void inspect(){
@@ -38,10 +44,14 @@ public class GunPlatform extends BaseModule {
 
     public String snippet(String coord){
         //TODO temporary
-        return '\"' + coord + "\": A class-A gun platform with a railgun, located at " + coord;
+        return '\"' + coord + "\": A gun platform with a railgun, located at " + coord;
     }
 
     public boolean contains(String command){
         return getCommands().contains(command);
+    }
+    
+    public char getChar(){
+        return '*';
     }
 }

@@ -48,4 +48,8 @@ public class Storage extends BaseModule {
     public boolean contains(String command){
         return getCommands().contains(command);
     }
+
+    public char getChar(){
+        return 'O';
+    }
 }

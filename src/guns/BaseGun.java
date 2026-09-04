@@ -1,5 +1,7 @@
 package src.guns;
 
-public abstract class BaseGun {
+import src.Commandable;
+
+public abstract class BaseGun implements Commandable {
     
 }

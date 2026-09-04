@@ -72,6 +72,10 @@ public class Units {
         public Volume(double amount){
             super(amount);
         }
+
+        public Volume(Volume volume){
+            super(volume.amount);
+        }
     }
     public static class Temperature extends UnitType{
         public Temperature plus(Volume d){
@@ -95,6 +99,7 @@ public class Units {
 
     public static final Unit<Density> KilogramsPerMeterCubed = new Unit<>(Density::new, 1.0);
     public static final Unit<Volume> MetersCubed = new Unit<>(Volume::new, 1.0);
+    public static final Unit<Volume> MillimetersCubed = new Unit<>(Volume::new, 1000.0);
     public static final Unit<Temperature> Kelvin = new Unit<>(Temperature::new, 1.0);
     public static final Unit<HeatCapacity> JoulesPerKelvin = new Unit<>(HeatCapacity::new, 1.0);
 }
