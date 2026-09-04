@@ -4,27 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import src.ResourceHandler;
+import src.Units;
+import src.Units.Volume;
 
 public class Storage extends BaseModule {
     private final ArrayList<String> COMMANDS = new ArrayList<>(
-        List.of("inspect", "deposit materials", "move materials")
-    );
+            List.of("inspect", "deposit materials", "move materials"));
 
     ResourceHandler resourceHandler;
 
-    public Storage(){
+    public Storage(Volume maxVolume) {
+        this.resourceHandler = new ResourceHandler(maxVolume);
+    }
+
+    public void depositMaterials() {
 
     }
 
-    public void depositMaterials(){
-
+    public void moveMaterials() {
+        // move to storage or airlock
     }
 
-    public void moveMaterials(){
-        //move to storage or airlock
-    }
-
-    public void runCommand(String command){
+    public void runCommand(String command) {
         switch (command) {
             case "inspect" -> inspect();
             case "deposit materials" -> depositMaterials();
@@ -32,24 +33,24 @@ public class Storage extends BaseModule {
         }
     }
 
-    public ArrayList<String> getCommands(){
+    public ArrayList<String> getCommands() {
         return COMMANDS;
     }
 
-    public void inspect(){
-        //give info about the platform and the gun object it has
+    public void inspect() {
+        // give info about the platform and the gun object it has
     }
 
-    public String snippet(String coord){
-        //TODO temporary
-        return '\"' + coord + "\": A class-A gun platform with a railgun, located at " + coord;
+    public String snippet(String coord) {
+        // TODO temporary
+        return '\"' + coord + "\": A storage container located at " + coord;
     }
 
-    public boolean contains(String command){
+    public boolean contains(String command) {
         return getCommands().contains(command);
     }
 
-    public char getChar(){
+    public char getChar() {
         return 'O';
     }
 }

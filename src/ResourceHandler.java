@@ -11,7 +11,7 @@ public class ResourceHandler {
     private String[] list;
     private boolean isBlacklist;
 
-    private ArrayList<Resource> resources;
+    private ArrayList<Resource> resources = new ArrayList<>();
 
     public ResourceHandler(Volume maxVolume){
         this.maxVolume = maxVolume;

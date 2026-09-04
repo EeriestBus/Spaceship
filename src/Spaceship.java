@@ -14,7 +14,7 @@ public class Spaceship implements Commandable {
     public final ArrayList<ArrayList<BaseModule>> modules = new ArrayList<>(
         List.of(
             new ArrayList<>(
-                List.of(new GunPlatform(), new Storage())
+                List.of(new GunPlatform(), new Storage(Units.MetersCubed.of(10.0)))
             )
         )
     );
