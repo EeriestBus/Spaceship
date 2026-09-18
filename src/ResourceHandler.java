@@ -2,6 +2,8 @@ package src;
 
 import java.util.ArrayList;
 
+import static src.Units.*;
+
 import src.Units.Volume;
 import src.materials.Resource;
 
@@ -22,7 +24,7 @@ public class ResourceHandler {
     //return the leftover
     public Resource Deposit(Resource resource){
         boolean deposited = false;
-        Volume toDeposit = resource.getVolume();
+        Volume toDeposit = Resource.inSmallestUnits(resource.getVolume(), resource.getSmallestUnit());;
 
         if(toDeposit.amount > remainingVolume().amount){
             toDeposit = Resource.inSmallestUnits(remainingVolume(), resource.getSmallestUnit());

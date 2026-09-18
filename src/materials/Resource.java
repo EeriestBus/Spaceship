@@ -1,9 +1,10 @@
 package src.materials;
 
 import src.Units.*;
-import static src.Units.KilogramsPerMeterCubed;
 
-import src.Units;
+import java.math.BigDecimal;
+
+import static src.Units.*;
 
 public class Resource {
     private Volume volume;
@@ -19,11 +20,14 @@ public class Resource {
     }
 
     public static Volume inSmallestUnits(Volume volume, Volume smallestUnit){
-        return Units.MetersCubed.of(volume.in(Units.MetersCubed) - volume.in(Units.MetersCubed) % smallestUnit.in(Units.MetersCubed));
+        BigDecimal vol = BigDecimal.valueOf(volume.in(MetersCubed));
+        BigDecimal SU = BigDecimal.valueOf(smallestUnit.in(MetersCubed));
+
+        return MetersCubed.of(vol.subtract(vol.remainder(SU)).doubleValue());
     }
 
     private Resource(String name, Density density, Volume volume) {
-        this(name, density, volume, Units.MillimetersCubed.of(0.001));
+        this(name, density, volume, MillimetersCubed.of(0.001));
     }
 
     public Resource(Resource resource){

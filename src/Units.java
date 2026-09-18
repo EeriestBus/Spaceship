@@ -1,5 +1,6 @@
 package src;
 
+import java.math.BigDecimal;
 import java.util.function.Function;
 
 import src.Units.Temperature;
@@ -53,7 +54,7 @@ public class Units {
         }
 
         public Density minus(Density d){
-            return new Density(this.amount + d.amount);
+            return new Density(this.amount - d.amount);
         }
 
         public Density(double amount){
@@ -66,7 +67,7 @@ public class Units {
         }
 
         public Volume minus(Volume d){
-            return new Volume(this.amount + d.amount);
+            return new Volume(this.amount - d.amount);
         }
 
         public Volume(double amount){
@@ -83,7 +84,7 @@ public class Units {
         }
 
         public Temperature minus(Volume d){
-            return new Temperature(this.amount + d.amount);
+            return new Temperature(this.amount - d.amount);
         }
 
         public Temperature(double amount){
