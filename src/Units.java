@@ -91,16 +91,15 @@ public class Units {
             super(amount);
         }
     }
-    public static class HeatCapacity extends UnitType{
-        public HeatCapacity(double amount){
+    public static class SpecificHeatCapacity extends UnitType{
+        public SpecificHeatCapacity(double amount){
             super(amount);
         }
     }
-
 
     public static final Unit<Density> KilogramsPerMeterCubed = new Unit<>(Density::new, 1.0);
     public static final Unit<Volume> MetersCubed = new Unit<>(Volume::new, 1.0);
     public static final Unit<Volume> MillimetersCubed = new Unit<>(Volume::new, 1000.0);
     public static final Unit<Temperature> Kelvin = new Unit<>(Temperature::new, 1.0);
-    public static final Unit<HeatCapacity> JoulesPerKelvin = new Unit<>(HeatCapacity::new, 1.0);
+    public static final Unit<SpecificHeatCapacity> JoulesPerKelvinGram = new Unit<>(SpecificHeatCapacity::new, 1.0);
 }

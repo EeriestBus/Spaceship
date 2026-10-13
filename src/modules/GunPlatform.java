@@ -20,6 +20,7 @@ public class GunPlatform extends BaseModule {
         //remove the gun
     }
 
+    @Override 
     public void runCommand(String command){
         switch (command) {
             case "inspect" -> inspect();
@@ -28,6 +29,7 @@ public class GunPlatform extends BaseModule {
         }
     }
 
+    @Override 
     public ArrayList<String> getCommands(){
         ArrayList<String> array = new ArrayList<>();
 
@@ -38,15 +40,18 @@ public class GunPlatform extends BaseModule {
         return array;
     }
 
+    @Override 
     public void inspect(){
         //give info about the platform and the gun object it has
     }
 
+    @Override 
     public String snippet(String coord){
         //TODO temporary
         return '\"' + coord + "\": A gun platform with a railgun, located at " + coord;
     }
 
+    @Override 
     public boolean contains(String command){
         return getCommands().contains(command);
     }

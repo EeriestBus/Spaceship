@@ -2,6 +2,9 @@ package src;
 
 import java.util.ArrayList;
 
+/**
+ * An interface for something that can be commanded
+ */
 public interface Commandable {
     /**
      * @param command

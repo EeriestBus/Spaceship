@@ -25,6 +25,7 @@ public class Storage extends BaseModule {
         // move to storage or airlock
     }
 
+    @Override 
     public void runCommand(String command) {
         switch (command) {
             case "inspect" -> inspect();
@@ -33,19 +34,23 @@ public class Storage extends BaseModule {
         }
     }
 
+    @Override 
     public ArrayList<String> getCommands() {
         return COMMANDS;
     }
 
+    @Override 
     public void inspect() {
         // give info about the platform and the gun object it has
     }
 
+    @Override 
     public String snippet(String coord) {
         // TODO temporary
         return '\"' + coord + "\": A storage container located at " + coord;
     }
 
+    @Override 
     public boolean contains(String command) {
         return getCommands().contains(command);
     }

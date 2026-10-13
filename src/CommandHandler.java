@@ -7,6 +7,9 @@ import java.util.LinkedHashSet;
 import src.Utils.Pair;
 import src.modules.BaseModule;
 
+/**
+ * Handles all commands from the different sources
+ */
 public class CommandHandler implements Commandable {
     private Game game;
 
@@ -17,6 +20,7 @@ public class CommandHandler implements Commandable {
     private final ArrayList<String> COMMANDS = new ArrayList<String>(
             List.of("help"));
 
+    @Override
     public ArrayList<String> getCommands() {
         return this.COMMANDS;
     }
@@ -24,7 +28,6 @@ public class CommandHandler implements Commandable {
     public ArrayList<String> getAllCommands() {
         LinkedHashSet<String> allCommands = new LinkedHashSet<>();
         allCommands.addAll(COMMANDS);
-        allCommands.addAll(game.spaceship.getCommands());
         for (ArrayList<BaseModule> column : game.spaceship.modules) {
             for (BaseModule module : column) {
                 if (module != null) {
@@ -42,9 +45,6 @@ public class CommandHandler implements Commandable {
 
         if (this.contains(command)) {
             containers.add(new Pair<>(this, "system"));
-        }
-        if (game.spaceship.contains(command)) {
-            containers.add(new Pair<>(this.game.spaceship, "ship"));
         }
         for (int column = 0; column < game.spaceship.modules.size(); column++) {
             for (int row = 0; row < game.spaceship.modules.get(column).size(); row++) {
@@ -81,14 +81,17 @@ public class CommandHandler implements Commandable {
         }
     }
 
+    @Override 
     public String snippet(String key) {
         return "\"" + key + "\": system";
     }
 
+    @Override
     public boolean contains(String command) {
         return getCommands().contains(command);
     }
 
+    @Override
     public void runCommand(String command) {
         switch (command) {
             case "help" -> help();
